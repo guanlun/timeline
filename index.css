@@ -1,0 +1,52 @@
+html, body {
+    margin: 0px;
+}
+
+#wrapper {
+    font-family: Helvetica;
+    color: #024d61;
+}
+
+#title {
+    font-size: 30pt;
+    text-align: center;
+}
+
+#event_new_container {
+    background: #83acee;
+    padding: 10px;
+    height: 150px;
+}
+
+.form {
+    display: inline;
+    float: left;
+}
+
+#event_new_container input {
+    width: 400px;
+    height: 20px;
+    font-size: 12pt;
+    padding: 5px;
+}
+
+button {
+    border: none;
+    font-size: 14pt;
+    color: whitesmoke;
+}
+
+#event_container {
+    position: relative;
+    width: 800px;
+    left: 50%;
+    margin-left: -400px;
+}
+
+.event_item {
+    width: 360px;
+    padding: 10px 20px;
+    margin-top: 5px;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}

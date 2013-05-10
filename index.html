@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Timeline</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="timeline.js"></script>
+    <link rel="stylesheet" href="index.css" type="text/css" media="screen">
+</head>
+<body>
+    <div id="wrapper">
+        <div id='title'>Timeline</div>
+        <div id="event_new_container">
+            <div id="event_form" class='form'>
+                Event Title: <input type="text" id="event_new_title" value=""><br />
+                Event Date: <input type="text" id="event_new_date" value=""><br />
+                <button id="event_new_button">New Event</button>
+            </div>
+            <div id="period_form" class='form'>
+                Period Title: <input type="text" id="period_new_title" value=""><br />
+                Period Starting Date: <input type="text" id="period_starting_date" value=""><br />
+                Period Ending Date: <input type="text" id="period_ending_date" value=""><br />
+                <button id="period_new_button">New Period</button>
+            </div>
+        </div>
+        <div id="event_container">
+        </div>
+    </div>
+</body>
+</html>
