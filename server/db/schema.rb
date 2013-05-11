@@ -11,12 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510121859) do
+ActiveRecord::Schema.define(:version => 20130510140642) do
 
   create_table "timeline_events", :force => true do |t|
     t.string   "title"
     t.string   "description"
     t.date     "date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "timeline_periods", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "title"
+    t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

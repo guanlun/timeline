@@ -36,17 +36,36 @@ button {
     color: whitesmoke;
 }
 
-#event_container {
-    position: relative;
+#timeline_container {
     width: 800px;
-    left: 50%;
-    margin-left: -400px;
+    margin: 0 auto;
+}
+
+#event_container {
+    float: left;
+    width: 400px;
+}
+
+#period_container {
+    position: relative;
+    float: left;
+    width: 400px;
 }
 
 .event_item {
     width: 360px;
     padding: 10px 20px;
+    height: 100px;
     margin-top: 5px;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+
+.period_item {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.2);
+    width: inherit;
+    padding: 10px 20px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
 }
