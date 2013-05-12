@@ -60,4 +60,24 @@ class TimelineController < ApplicationController
       render :text => 'error'
     end
   end
+
+  def delete_event
+    event = TimelineEvent.find(params[:id])
+
+    if event.delete
+      render :text => 'ok'
+    else
+      render :text => 'error'
+    end
+  end
+
+  def delete_period
+    period = TimelinePeriod.find(params[:id])
+
+    if period.delete
+      render :text => 'ok'
+    else
+      render :text => 'error'
+    end
+end
 end
