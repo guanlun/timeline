@@ -32,9 +32,10 @@ class TimelineController < ApplicationController
     description = params[:description]
     start_date = params[:start_date]
     end_date = params[:end_date]
+    col_no = params[:col_no]
 
     period = TimelinePeriod.new :title => title, :description => description, 
-      :start_date => start_date, :end_date => end_date
+      :start_date => start_date, :end_date => end_date, :col_no => col_no
 
     if period.save
       render :text => 'ok'

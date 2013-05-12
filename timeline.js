@@ -41,12 +41,13 @@ $(function() {
         }.bind(this));
     }
 
-    Period = function(id, title, start_date, end_date, description) {
+    Period = function(id, title, start_date, end_date, description, col_no) {
         this.id = id;
         this.title = title;
         this.start_date = start_date;
         this.end_date = end_date;
         this.description = description;
+        this.col_no = col_no;
 
         this.dom = $('<div class="period_item"></div>');
         this.title_el = $('<div class="period_item_title item_title" contenteditable>' 
@@ -59,11 +60,17 @@ $(function() {
                 + this.description + '</div>');
         this.delete_el = $('<div class="period_item_delete item_delete">delete</div>');
 
+        this.left_arrow_el = $('<div class="period_item_left_arrow arrow">&lt;</div>');
+        this.right_arrow_el = $('<div class="period_item_right_arrow arrow">&gt;</div>');
+
         this.dom.append(this.title_el);
         this.dom.append(this.delete_el);
         this.dom.append(this.start_date_el);
         this.dom.append(this.end_date_el);
         this.dom.append(this.description_el);
+
+        this.dom.append(this.left_arrow_el);
+        this.dom.append(this.right_arrow_el);
 
         this.title_el.blur(function() {
             updateAttr('period', this.id, 'title', this.title_el.html());
@@ -85,6 +92,17 @@ $(function() {
             if (confirm('delete this period?')) {
                 deleteItem('period', this.id);
             }
+        }.bind(this));
+
+        this.left_arrow_el.click(function() {
+            if (this.col_no > 1) {
+                updateAttr('period', this.id, 'col_no', this.col_no - 1);
+            }
+        }.bind(this));
+
+        this.right_arrow_el.click(function() {
+            this.col_no;
+            updateAttr('period', this.id, 'col_no', this.col_no + 1);
         }.bind(this));
     }
 
@@ -217,16 +235,29 @@ $(function() {
                         if (date <= end_date) {
                             end_event_idx++;
                         }
-
                     }
 
-                    var new_period = new Period(item.id, item.title, start_date, end_date, item.description);
+                    /*
+                    for (var j in periods) {
+                        var p = periods[j];
+                        if (!(p.start_date > end_date || p.end_date < start_date)) {
+
+                        }
+                    }
+                    */
+
+                    var new_period = new Period(item.id, item.title, start_date, 
+                            end_date, item.description, item.col_no);
 
                     period_container.append(new_period.dom);
                     new_period.dom.css('top', start_event_idx * 127 + 5);
 
                     var event_idx_span = end_event_idx - start_event_idx;
                     new_period.dom.css('height', event_idx_span * 127 - 27);
+
+                    new_period.dom.css('left', (item.col_no - 1) * 200);
+
+                    // periods.push(data[i]);
                 }
             }
         });
@@ -262,6 +293,7 @@ $(function() {
         var start_date = formatDate($('#period_start_date').val());
         var end_date = formatDate($('#period_end_date').val());
         var description = $('#period_new_description').val();
+        var col_no = $('#period_new_col_no').val() || 1;
 
         if (title && start_date && end_date) {
             $.ajax({
@@ -272,6 +304,7 @@ $(function() {
                     description: description,
                     start_date: start_date,
                     end_date: end_date,
+                    col_no: col_no,
                 },
                 success: function(data) {
                     renderAll();

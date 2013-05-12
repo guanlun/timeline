@@ -37,19 +37,19 @@ html, body {
 .form input {
     width: 300px;
     font-size: 12pt;
-    height: 20px;
-    padding: 5px;
+    height: 18px;
+    padding: 3px;
 }
 
 button {
     font-size: 12pt;
-    padding: 6px;
+    padding: 4px;
 }
 
 #timeline_container {
     width: 800px;
     margin: 0 auto;
-    margin-top: 220px;
+    margin-top: 240px;
 }
 
 #event_container {
@@ -102,9 +102,26 @@ button {
 
 .period_item {
     position: absolute;
-    width: inherit;
+    width: 150px;
     padding: 10px 20px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
     background: rgba(255, 165, 0, 0.3);
-}w
+}
+
+.arrow {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    font-weight: bold;
+}
+
+.period_item_left_arrow {
+    float: left;
+}
+
+.period_item_right_arrow {
+    float: right;
+}
