@@ -8,37 +8,48 @@ html, body {
 }
 
 #title {
+    position: fixed;
+    width: 100%;
     font-size: 30pt;
     text-align: center;
 }
 
-#event_new_container {
+#header_container {
+    width: 100%;
+    position: fixed;
+    top: 0px;
     background: #83acee;
-    padding: 10px;
-    height: 180px;
+    z-index: 100;
+}
+
+#event_new_container {
+    height: 200px;
+    width: 680px;
+    margin: 0 auto;
 }
 
 .form {
     display: inline;
     float: left;
+    margin: 12px;
 }
 
-#event_new_container input {
-    width: 400px;
-    height: 20px;
+.form input {
+    width: 300px;
     font-size: 12pt;
+    height: 20px;
     padding: 5px;
 }
 
 button {
-    border: none;
-    font-size: 14pt;
-    color: whitesmoke;
+    font-size: 12pt;
+    padding: 6px;
 }
 
 #timeline_container {
     width: 800px;
     margin: 0 auto;
+    margin-top: 220px;
 }
 
 #event_container {
@@ -62,21 +73,31 @@ button {
     background: rgba(0, 165, 255, 0.2);
 }
 
-.event_item_title {
+.item_title {
     float: left;
+    font-weight: bold;
 }
 
-.event_item_delete {
+.item_delete {
     float: right;
     cursor: pointer;
 }
 
-.event_item_delete:hover {
+.item_delete:hover {
     text-decoration: underline;
 }
 
-.event_item_date {
+.item_date {
     clear: both;
+}
+
+.item_description {
+    margin-top: 3px;
+}
+
+.event_item_description {
+    height: 65px;
+    overflow: scroll;
 }
 
 .period_item {
@@ -86,21 +107,4 @@ button {
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
     background: rgba(255, 165, 0, 0.3);
-}
-
-.period_item_title {
-    float: left;
-}
-
-.period_item_delete {
-    float: right;
-    cursor: pointer;
-}
-
-.period_item_delete:hover {
-    text-decoration: underline;
-}
-
-.period_item_start_date {
-    clear: both;
-}
+}w

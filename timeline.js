@@ -9,13 +9,13 @@ $(function() {
         this.description = description;
 
         this.dom = $('<div class="event_item"></div>');
-        this.title_el = $('<div class="event_item_title" contenteditable>' 
+        this.title_el = $('<div class="event_item_title item_title" contenteditable>' 
                 + this.title + '</div>');
-        this.date_el = $('<div class="event_item_date" contenteditable>' 
+        this.date_el = $('<div class="event_item_date item_date" contenteditable>' 
                 + this.date + '</div>');
-        this.description_el = $('<div class="event_item_description" contenteditable>' 
+        this.description_el = $('<div class="event_item_description item_description" contenteditable>' 
                 + this.description + '</div>');
-        this.delete_el = $('<div class="event_item_delete">delete</div>');
+        this.delete_el = $('<div class="event_item_delete item_delete">delete</div>');
 
         this.dom.append(this.title_el);
         this.dom.append(this.delete_el);
@@ -35,7 +35,9 @@ $(function() {
         }.bind(this));
 
         this.delete_el.click(function() {
-            deleteItem('event', this.id);
+            if (confirm('delete this event?')) {
+                deleteItem('event', this.id);
+            }
         }.bind(this));
     }
 
@@ -47,15 +49,15 @@ $(function() {
         this.description = description;
 
         this.dom = $('<div class="period_item"></div>');
-        this.title_el = $('<div class="period_item_title" contenteditable>' 
+        this.title_el = $('<div class="period_item_title item_title" contenteditable>' 
                 + this.title + '</div>');
-        this.start_date_el = $('<div class="period_item_start_date" contenteditable>' 
+        this.start_date_el = $('<div class="period_item_start_date item_date" contenteditable>' 
                 + this.start_date + '</div>');
-        this.end_date_el = $('<div class="period_item_end_date" contenteditable>' 
+        this.end_date_el = $('<div class="period_item_end_date item_date" contenteditable>' 
                 + this.end_date + '</div>');
-        this.description_el = $('<div class="period_item_description" contenteditable>' 
+        this.description_el = $('<div class="period_item_description item_description" contenteditable>' 
                 + this.description + '</div>');
-        this.delete_el = $('<div class="period_item_delete">delete</div>');
+        this.delete_el = $('<div class="period_item_delete item_delete">delete</div>');
 
         this.dom.append(this.title_el);
         this.dom.append(this.delete_el);
@@ -80,7 +82,9 @@ $(function() {
         }.bind(this));
 
         this.delete_el.click(function() {
-            deleteItem('period', this.id);
+            if (confirm('delete this period?')) {
+                deleteItem('period', this.id);
+            }
         }.bind(this));
     }
 
@@ -232,22 +236,25 @@ $(function() {
 
     $('#event_new_button').click(function() {
         var title = $('#event_new_title').val();
-        var date_arr = $('#event_new_date').val().split(' ');
         var date = formatDate($('#event_new_date').val());
         var description = $('#event_new_description').val();
 
-        $.ajax({
-            url: 'http://localhost:3000/timeline/add_event',
-            type: 'POST',
-            data: {
-                title: title,
-                description: description,
-                date: date,
-            },
-            success: function(data) {
-                renderAll();
-            }
-        });
+        if (title && date) {
+            $.ajax({
+                url: 'http://localhost:3000/timeline/add_event',
+                type: 'POST',
+                data: {
+                    title: title,
+                    description: description,
+                    date: date,
+                },
+                success: function(data) {
+                    renderAll();
+                }
+            });
+        } else {
+            alert('please fill the fields!');
+        }
     });
 
     $('#period_new_button').click(function() {
@@ -256,18 +263,22 @@ $(function() {
         var end_date = formatDate($('#period_end_date').val());
         var description = $('#period_new_description').val();
 
-        $.ajax({
-            url: 'http://localhost:3000/timeline/add_period',
-            type: 'POST',
-            data: {
-                title: title,
-                description: description,
-                start_date: start_date,
-                end_date: end_date,
-            },
-            success: function(data) {
-                renderAll();
-            }
-        });
+        if (title && start_date && end_date) {
+            $.ajax({
+                url: 'http://localhost:3000/timeline/add_period',
+                type: 'POST',
+                data: {
+                    title: title,
+                    description: description,
+                    start_date: start_date,
+                    end_date: end_date,
+                },
+                success: function(data) {
+                    renderAll();
+                }
+            });
+        } else {
+            alert('please fill the fields!');
+        }
     });
 });

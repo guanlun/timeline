@@ -9,20 +9,22 @@
 </head>
 <body>
     <div id="wrapper">
-        <div id='title'>Timeline</div>
-        <div id="event_new_container">
-            <div id="event_form" class='form'>
-                Event Title: <input type="text" id="event_new_title" value=""><br />
-                Event Date: <input type="text" id="event_new_date" value=""><br />
-                Event Description: <input type="text" id="event_new_description" value=""><br />
-                <button id="event_new_button">New Event</button>
-            </div>
-            <div id="period_form" class='form'>
-                Period Title: <input type="text" id="period_new_title" value=""><br />
-                Period Starting Date: <input type="text" id="period_start_date" value=""><br />
-                Period Ending Date: <input type="text" id="period_end_date" value=""><br />
-                Period Description: <input type="text" id="period_new_description" value=""><br />
-                <button id="period_new_button">New Period</button>
+        <!-- <div id="title">Timeline</div> -->
+        <div id="header_container">
+            <div id="event_new_container">
+                <div id="event_form" class='form'>
+                    <input type="text" id="event_new_title" placeholder="Event Name"><br />
+                    <input type="text" id="event_new_date" placeholder="Date"><br />
+                    <input type="text" id="event_new_description" placeholder="Description"><br />
+                    <button id="event_new_button">New Event</button>
+                </div>
+                <div id="period_form" class='form'>
+                    <input type="text" id="period_new_title" placeholder="Period Name"><br />
+                    <input type="text" id="period_start_date" placeholder="Start Date"><br />
+                    <input type="text" id="period_end_date" placeholder="End Date"><br />
+                    <input type="text" id="period_new_description" placeholder="Description"><br />
+                    <button id="period_new_button">New Period</button>
+                </div>
             </div>
         </div>
         <div id="timeline_container">
