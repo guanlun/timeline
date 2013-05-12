@@ -16,7 +16,7 @@ class TimelineController < ApplicationController
   def add_event
     title = params[:title]
     description = params[:description]
-    date = Date.parse params[:date]
+    date = params[:date]
 
     event = TimelineEvent.new :title => title, :description => description, :date => date
 
@@ -30,8 +30,8 @@ class TimelineController < ApplicationController
   def add_period
     title = params[:title]
     description = params[:description]
-    start_date = Date.parse params[:start_date]
-    end_date = Date.parse params[:end_date]
+    start_date = params[:start_date]
+    end_date = params[:end_date]
 
     period = TimelinePeriod.new :title => title, :description => description, 
       :start_date => start_date, :end_date => end_date

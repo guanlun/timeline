@@ -15,7 +15,7 @@ html, body {
 #event_new_container {
     background: #83acee;
     padding: 10px;
-    height: 150px;
+    height: 180px;
 }
 
 .form {
@@ -43,29 +43,30 @@ button {
 
 #event_container {
     float: left;
-    width: 400px;
+    width: 395px;
 }
 
 #period_container {
     position: relative;
-    float: left;
-    width: 400px;
+    float: right;
+    width: 395px;
 }
 
 .event_item {
-    width: 360px;
+    width: 355px;
     padding: 10px 20px;
     height: 100px;
     margin-top: 5px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
+    background: rgba(0, 165, 255, 0.2);
 }
 
 .period_item {
     position: absolute;
-    background: rgba(0, 0, 0, 0.2);
     width: inherit;
     padding: 10px 20px;
     border-top: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
+    background: rgba(255, 165, 0, 0.3);
 }
