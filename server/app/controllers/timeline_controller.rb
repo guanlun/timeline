@@ -42,4 +42,22 @@ class TimelineController < ApplicationController
       render :text => 'error'
     end
   end
+
+  def update_event_attr
+    event = TimelineEvent.find(params[:id])
+    if event.update_attributes(params[:attr] => params[:value])
+      render :text => 'ok'
+    else
+      render :text => 'error'
+    end
+  end
+
+  def update_period_attr
+    period = TimelinePeriod.find(params[:id])
+    if period.update_attributes(params[:attr] => params[:value])
+      render :text => 'ok'
+    else
+      render :text => 'error'
+    end
+  end
 end

@@ -1,6 +1,9 @@
 Server::Application.routes.draw do
   get 'timeline/get_all_events'
-  get 'timeline/add_event'
+  post 'timeline/add_event'
+  post 'timeline/update_event_attr'
+
   get 'timeline/get_all_periods'
-  get 'timeline/add_period'
+  post 'timeline/add_period'
+  post 'timeline/update_period_attr'
 end
